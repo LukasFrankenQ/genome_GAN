@@ -41,7 +41,7 @@ def train():
     D = Discriminator(mnist_dim).to(device)
     
     """init training config"""
-    epochs = 10
+    epochs = 200
     criterion = nn.BCELoss() 
     lr = 2e-4
     G_optimizer = optim.Adam(G.parameters(), lr=lr)
@@ -60,7 +60,7 @@ def train():
             with torch.no_grad():
                 test_z = Variable(torch.randn(batch_size, z_dim).to(device))
                 generated = G(test_z)
-                save_image(generated.view(generated.size(0), 1, 28, 28), './samples/sample_epoch_'+str(epoch)+'.png')
+                #save_image(generated.view(generated.size(0), 1, 28, 28), './samples/sample_epoch_'+str(epoch)+'.png')
 
         print('[%d/%d]: loss_d: %.3f, loss_g: %.3f' % (
                 (epoch), epochs, torch.mean(torch.FloatTensor(D_losses)), torch.mean(torch.FloatTensor(G_losses))))
@@ -105,8 +105,8 @@ def main():
     
     """compute first two principal components"""
     pca = PCA(n_components=2)
-    pca.fit(sample.detach().numpy())
-    comps = pca.transform(sample.detach().numpy())
+    pca.fit(sample.detach().cpu().numpy())
+    comps = pca.transform(sample.detach().cpu().numpy())
     fig, ax = plt.subplots(1,1, figsize=(10, 10))
     ax.scatter(comps[:,0], comps[:,1], c='darkred', s=3., edgecolor='k', linewidths=0.05)
     ax.grid(True)
@@ -126,6 +126,6 @@ def main():
     
     
 if __name__ == '__main__':
-    train()
+    #train()
     main()
     
