@@ -2,7 +2,7 @@
 
 Repository to establish basic functionality of the GAN framework, aims to be further developed into a toolbox for investigation of GAN capablitlies and genome anonymization. 
 
-## Functionality:
+## Functionality
 * trainer.py --> Training methods for both Discriminator and Generator
 * models.py --> Basic Linear models for Discriminator and Generator
 * main.py --> Trains and saves models, furthermore obtains statistics on the results
