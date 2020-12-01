@@ -1,6 +1,6 @@
 # genome_GAN
 
-Repository to establish basic functionality of the GAN framework, aims to be further developed into a toolbox for investigation of GAN capablitlies and genome anonymization. 
+Repository to establish basic functionality of the GAN framework, aims to be further developed into a toolbox for investigation of GAN capabilities in genome anonymization. 
 
 ## Functionality
 * trainer.py --> Training methods for both Discriminator and Generator
